@@ -5,16 +5,11 @@ import sqlite3
 csv_file = '/Users/Ezra/Documents/CS50 final project/CS50data.csv'  # Update with the path to your CSV file
 df = pd.read_csv(csv_file)
 
-print("hello")
-
 # Create a new SQLite database
 conn = sqlite3.connect('truthify.db')
 
 # Write data to SQLite database
 df.to_sql('data', conn, if_exists='replace', index=False)
-
-# Print first couple rows
-print(df.head())
 
 # Close connection
 conn.close()
