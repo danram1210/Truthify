@@ -1,0 +1,21 @@
+{
+    "manifest_version": 3,
+    "name": "Truthify",
+    "description": "Base Level Extension",
+    "version": "1.0",
+    "permissions": ["tabs"],
+    "background": {
+      "scripts": ["background.js"],
+      "persistent": false
+    },
+    "action": {
+    "default_popup": "Truthify.html",
+    "default_icon": {
+      "48": "icons/truthify.png"
+      }
+    },
+    "icons": {
+      "48": "icons/truthify.png"
+    }   
+}
+
