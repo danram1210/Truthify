@@ -3,7 +3,7 @@
     "name": "Truthify",
     "description": "Base Level Extension",
     "version": "1.0",
-    "permissions": ["tabs"],
+    "permissions": ["tabs", "activeTab"],
     "background": {
       "scripts": ["background.js"],
       "persistent": false
