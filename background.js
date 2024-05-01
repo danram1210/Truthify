@@ -1,16 +1,22 @@
-chrome.browserAction.onClicked.addListener(function(tab) {
-  chrome.tabs.executeScript({
-      code: 'document.body.style.backgroundColor="red"'
+// background.js
+chrome.runtime.onInstalled.addListener(function() {
+  chrome.tabs.query({ active: true, currentWindow: true }, function(tabs) {
+    if (tabs.length > 0) {
+      const currentTab = tabs[0];
+      console.log("Current URL:", currentTab.url);
+      // Here you can call your function to check the URL against the database
+      // checkUrlWithDatabase(currentTab.url);
+    }
   });
 });
 
-chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
-  var url = tabs[0].url;
-  console.log(url);
-
-  // Send the URL to the backend server
-  var xhr = new XMLHttpRequest();
-  xhr.open("POST", "http://0.0.0.0:5000/endpoint", true); // local URL flask endpoint URL
-  xhr.setRequestHeader("Content-Type", "application/json");
-  xhr.send(JSON.stringify({url: url}));
+chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab) {
+  if (changeInfo.url) {
+    console.log("Tab URL changed:", changeInfo.url);
+    // Here you can call your function to check the URL against the database
+    // checkUrlWithDatabase(changeInfo.url);
+  }
 });
+
+
+
