@@ -33,8 +33,5 @@ def check_url():
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000)
 
-
-
-
     # Check if URL matches our DB in actual function - add this implementation once working instead of random choice
     
