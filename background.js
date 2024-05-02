@@ -24,30 +24,43 @@ function checkUrlWithDatabase(url) {
     }
     throw new Error('Request failed!');
   })
-  ?.then(data => {
-    // decide on whether to show notification or not
-    const isSafe = data.status === 'safe'; 
-    showNotification(isSafe, url);
+  .then(data => {
+    // Pass the response data directly to showNotification
+    showNotification(data, url);
   })
-  ?.catch(error => {
+  .catch(error => {
     console.error('Error:', error);
   });
 }
 
-function showNotification(isSafe, url) {
-  chrome.notifications.create('', {
+function showNotification(responseData, url) {
+  const isSafe = responseData.status === 'safe';
+  const notificationOptions = {
     type: 'basic',
     iconUrl: 'Icons/Truthify.png',
     title: 'URL Checker',
-    message: isSafe ? '✅' + url.slice(0,19) + '... is safe!' : '❌' + url.slice(0,19) + '... is not safe!',
+    message: isSafe ? '✅' + url.slice(0, 19) + '... is safe!' : '❌' + url.slice(0, 19) + '... is not safe!',
     priority: 2
-  }, function(notificationId) {
-    if (chrome.runtime.lastError) {
-      console.error('Notification creation failed:', chrome.runtime.lastError.message);
+  };
+
+  chrome.permissions.contains({
+    permissions: ['notifications']
+  }, (result) => {
+    if (result) {
+      try {
+        chrome.notifications.create('', notificationOptions, function (notificationId) {
+          if (chrome.runtime.lastError) {
+            console.error('Notification creation failed:', chrome.runtime.lastError.message);
+          } else {
+            console.log('Notification created:', notificationId);
+          }
+        });
+      } catch (error) {
+        console.error('Error creating notification:', error);
+      }
     } else {
-      console.log('Notification created:', notificationId);
+      console.log('Notification permission not granted');
     }
   });
 }
-
 
