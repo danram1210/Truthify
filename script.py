@@ -6,7 +6,6 @@ import sqlite3
 csv_file = '/Users/Ezra/Documents/CS50/Truthify/CS50data.csv'  # Update with the path to your CSV file
 =======
 csv_file = '/Users/apatino/truthify/Truthify/Truthify/disinformation_domains_clean.csv'  # Update with the path to your CSV file
->>>>>>> a4bedad7ba7f81bbf8a1f867a80867f80b94762f
 df = pd.read_csv(csv_file)
 
 print("hello")
