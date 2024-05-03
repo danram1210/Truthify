@@ -38,8 +38,8 @@ function showNotification(responseData, url) {
   const notificationOptions = {
     type: 'basic',
     iconUrl: 'Icons/Truthify.png',
-    title: 'URL Checker',
-    message: isSafe ? '✅' + url.slice(0, 19) + '... is safe!' : '❌' + url.slice(0, 19) + '... is not safe!',
+    title: 'Truthify',
+    message: isSafe ? '✅' + url.slice(0, 19) + '... is safe!' : '❌' + url.slice(0, 19) + '... is not safe! Click on Truthify plug-in to find out more',
     priority: 2
   };
 
