@@ -39,7 +39,7 @@ function showNotification(responseData, url) {
     type: 'basic',
     iconUrl: 'Icons/Truthify.png',
     title: 'Truthify',
-    message: isSafe ? '✅' + url.slice(0, 19) + '... is safe!' : '❌' + url.slice(0, 19) + '... is not safe! Click on Truthify plug-in to find out more',
+    message: isSafe ? '✅' + url.slice(0, 19) + '... is safe!' : '❌' + url.slice(0, 19) + '... is not safe! Click on the Truthify icon to find out more',
     priority: 2
   };
 
