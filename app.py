@@ -59,9 +59,3 @@ def check_url():
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000)
 
-    # Check if the URL was found in the database
-    #if result:
-      #  url, label, source, last_update, harm_score, type = result
-      #  return jsonify({"status": "unsafe", "details": {"url": url, "label": label, "source": source, "last_update": last_update, "harm_score": harm_score, "type": type}})
-    #else:
-      #  return jsonify({"status": "safe"})
