@@ -5,8 +5,6 @@ import sqlite3
 csv_file = '/~path~/Truthify/disinformation_domains_clean.csv'  # Update with the path to your CSV file
 df = pd.read_csv(csv_file)
 
-
-
 # Create a new SQLite database
 conn = sqlite3.connect('truthify.db')
 
