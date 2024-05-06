@@ -1,6 +1,7 @@
 # Truthify
 CS50 Final Project - Spring 2024
 Made by Ezra Sharpe, Armando Patino, & Daniel Ramirez
+Link to Truthify YouTube Video: https://youtu.be/snVZDHLEfSw?si=SyOwQkB6ocYZpxT1
 
 For our CS50 Final Project, our group developed a Chrome extension to alert Chrome browser users of potential misinformation present on the sites they visit. In order for the CS50 staff to visualize our Truthify extension in action, there are certain prerequisites that need to be completed:
 
